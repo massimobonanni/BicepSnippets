@@ -11,7 +11,7 @@ var eventFullName ='${eventName} - ${eventType} [${sessionTopic}]'
 
 var policyID  = '/providers/Microsoft.Authorization/policyDefinitions/2a0e14a6-b0a6-4fab-991a-187a4f81c498'
 
-var eventTypeAssigmentName  = 'Assign tag EventType for ${eventFullName}' 
+var eventTypeAssigmentName  = take('Assign tag EventType for ${eventFullName}',64) 
 
 resource eventTypeAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: eventTypeAssigmentName
@@ -29,7 +29,7 @@ resource eventTypeAssignment 'Microsoft.Authorization/policyAssignments@2020-09-
   }
 }
 
-var eventNameAssigmentName  = 'Assign tag EventName for ${eventFullName}' 
+var eventNameAssigmentName  = take('Assign tag EventName for ${eventFullName}',64) 
 
 resource eventNameAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: eventNameAssigmentName
