@@ -47,7 +47,7 @@ resource eventNameAssignment 'Microsoft.Authorization/policyAssignments@2020-09-
   }
 }
 
-var topicAssigmentName  = 'Assign tag Topic for ${eventFullName}' 
+var topicAssigmentName  = take('Assign tag Topic for ${eventFullName}' ,64)
 
 resource topicAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
   name: topicAssigmentName

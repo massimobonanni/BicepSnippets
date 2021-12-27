@@ -7,6 +7,8 @@ targetScope = 'subscription'
   'AZ304'
   'AZ303'
   'AZ400'
+  'AZ305'
+  'AZ700'
 ])
 param deliveryType string
 param deliveryId string
