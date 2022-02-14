@@ -8,17 +8,18 @@ targetScope = 'subscription'
 param eventType string
 param eventName string
 param sessionTopic string
+param location string= deployment().location
 
 var resourceGroupName = '${replace(eventName, ' ', '-')}-Demo-rg'
 
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   name: resourceGroupName
-  location: deployment().location
+  location: location
   tags:{
-     EventName : eventName
+     EventName: eventName
      EventType: eventType
-     Topic:sessionTopic
+     Topic: sessionTopic
   }
 }
 
@@ -26,8 +27,8 @@ module policyModules 'SessionDemoPolicies.bicep' = {
   scope: resourceGroup
   name: 'policies'
   params: {
-    eventName : eventName
+    eventName: eventName
     eventType: eventType
-    sessionTopic:sessionTopic
+    sessionTopic: sessionTopic
   }
 }

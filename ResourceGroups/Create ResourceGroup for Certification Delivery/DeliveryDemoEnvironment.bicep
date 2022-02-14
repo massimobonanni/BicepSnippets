@@ -12,13 +12,14 @@ targetScope = 'subscription'
 ])
 param deliveryType string
 param deliveryId string
+param location string= deployment().location
 
 var resourceGroupName = '${deliveryType}Demo-rg'
 
 
 resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-01-01' = {
   name: resourceGroupName
-  location: deployment().location
+  location: location
   tags:{
      Delivery : deliveryType
      DeliveryId: deliveryId
