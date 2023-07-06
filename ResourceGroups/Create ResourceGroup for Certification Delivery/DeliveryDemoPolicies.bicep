@@ -2,11 +2,11 @@
 param deliveryType string 
 param deliveryId string
 
-var deliveryIdAssigmentName  = take('Assign tag DeliveryID (delivery ID ${deliveryId})',64) 
+var deliveryIdAssignmentName  = take('Assign tag DeliveryID (ID ${deliveryId})',64) 
 var policyID  = tenantResourceId('Microsoft.Authorization/policyDefinitions','2a0e14a6-b0a6-4fab-991a-187a4f81c498')
 
-resource idAssignament 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
-  name: deliveryIdAssigmentName
+resource idAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+  name: deliveryIdAssignmentName
   scope: resourceGroup()
   properties: {
       policyDefinitionId: policyID
@@ -21,10 +21,10 @@ resource idAssignament 'Microsoft.Authorization/policyAssignments@2020-09-01' = 
   }
 }
 
-var deliveryTypeAssigmentName  = take('Assign tag Delivery (delivery ID ${deliveryId})',64) 
+var deliveryTypeAssignmentName  = take('Assign tag Delivery (ID ${deliveryId})',64) 
 
-resource typeAssignemnt 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
-  name: deliveryTypeAssigmentName
+resource typeAssignment 'Microsoft.Authorization/policyAssignments@2020-09-01' = {
+  name: deliveryTypeAssignmentName
   scope: resourceGroup()
   properties: {
       policyDefinitionId: policyID
