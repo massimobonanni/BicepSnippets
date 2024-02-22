@@ -12,7 +12,7 @@ and applies the <a href="https://github.com/Azure/azure-policy/blob/master/built
 
 `DeliveryId : <delivery id>`
 
-## Sintax
+## Syntax
 
 This is the command to use the template:
 
@@ -20,10 +20,21 @@ This is the command to use the template:
 az deployment sub create --location <resource group location> --template-file DeliveryDemoEnvironment.bicep --parameters deliveryType=<delivery type> deliveryId=<delivery id>
 ```
 
-
-## Parameters
+### Parameters
 
 | Parameter    | Description                                                         |
 |--------------|---------------------------------------------------------------------|
 | deliveryType | It is the delivery type you are delivering. For example `AZ-104`.    |
 | deliveryId   | It is the internal delivery id for the delivery. For example `31288`. |
+
+## Create a Template Spec
+To create a template spec from bicep files, use the following command:
+
+az ts create --name <specName> --version "1.0" --resource-group <resourceGroupName> --template-file "DeliveryDemoEnvironment.bicep"
+
+### Parameters
+
+| Parameter    | Description                                                         |
+|--------------|---------------------------------------------------------------------|
+| specName     | Name of the Template Spec resource you want create.    |
+| resourceGroupName   | Name of the resource Group contains the Template Spec resource. |
