@@ -30,11 +30,28 @@ az deployment sub create --location <resource group location> --template-file De
 ## Create a Template Spec
 To create a template spec from bicep files, use the following command:
 
+```bash
 az ts create --name <specName> --version "1.0" --resource-group <resourceGroupName> --template-file "DeliveryDemoEnvironment.bicep"
+```
 
 ### Parameters
 
 | Parameter    | Description                                                         |
 |--------------|---------------------------------------------------------------------|
 | specName     | Name of the Template Spec resource you want create.    |
+| resourceGroupName   | Name of the resource Group contains the Template Spec resource. |
+
+## Update a Template Spec
+To update an existing template spec from bicep files, use the following command:
+
+```bash
+az ts update --name <specName> --version "<version>" --resource-group <resourceGroupName> --template-file "DeliveryDemoEnvironment.bicep"
+```
+
+### Parameters
+
+| Parameter    | Description                                                         |
+|--------------|---------------------------------------------------------------------|
+| specName     | Name of the Template Spec resource you want update.    |
+| version      | Version of the Template Spec to update |
 | resourceGroupName   | Name of the resource Group contains the Template Spec resource. |
