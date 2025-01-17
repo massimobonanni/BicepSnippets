@@ -20,6 +20,7 @@ targetScope = 'subscription'
   'MS4010'
   'AI3016'
   'AZ2008'
+  'MS4009'
 ])
 param deliveryType string
 param deliveryId string
@@ -36,7 +37,7 @@ resource resourceGroup 'Microsoft.Resources/resourceGroups@2021-01-01' = {
      DeliveryId: deliveryId
   }
 }
-
+ 
 module policyModules 'DeliveryDemoPolicies.bicep' = {
   scope: resourceGroup
   name: 'policies'
