@@ -21,6 +21,9 @@ targetScope = 'subscription'
   'AI3016'
   'AZ2008'
   'MS4009'
+  'GH900'
+  'GH200'
+  'MS4018'
 ])
 param deliveryType string
 param deliveryId string
